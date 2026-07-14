@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <select id="state" onchange="f(this)">
+        <option >Select State</option>
+    </select>
+    <h3 id="result"></h3>
+</body>
+<script>
+    const ar=['maharashtra','punjab','haryana','goa'] 
+    console.log(ar.length)
+   
+
+    ar.forEach(i => {
+        let option=document.createElement("option")
+        console.log(i)
+        option.innerHTML=i;
+        document.getElementById("state").appendChild(option);
+        // document.getElementById("state").innerHTML+="<option>"+i+"</option>"
+        //  document.getElementById("state").innerHTML+=`<option>${i}</option>`
+        
+
+        // template literals
+    })
+    function f(state)
+    {
+document.querySelector("#result").innerHTML=`You selected ${state.value} state`
+    }
+    
+
+
+
+
+
+    const s={
+        'punjab':['','',''],
+        '':[]
+    }
+    
+</script>
+</html>

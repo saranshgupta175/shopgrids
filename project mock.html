@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<body>
+    <div class="container">
+    <div class="row align-items-center">
+
+    <div class="col-lg-3">
+        Logo
+    </div>
+
+    <div class="col-lg-5">
+        Search Bar
+    </div>
+
+    <div class="col-lg-2">
+        Hotline Number
+    </div>
+
+    <div class="col-lg-2 text-end">
+        ❤️ 🛒
+    </div>
+    </div>
+    <div class="container py-5 text-center">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="counter" data-target="1500">0</div>
+      <h5>Projects Completed</h5>
+    </div>
+    <div class="col-md-3">
+      <div class="counter" data-target="850">0</div>
+      <h5>Happy Clients</h5>
+    </div>
+  </div>
+</div>
+
+
+</div>
+</body>
+</html>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+  const counters = document.querySelectorAll(".counter");
+  
+  const startCounter = (el) => {
+    const target = +el.getAttribute("data-target");
+    const speed = 200; // Lower is faster
+    const increment = target / speed;
+    
+    const updateCount = () => {
+      const current = +el.innerText;
+      if (current < target) {
+        el.innerText = Math.ceil(current + increment);
+        setTimeout(updateCount, 15);
+      } else {
+        el.innerText = target;
+      }
+    };
+    updateCount();
+  };
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        startCounter(entry.target);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  counters.forEach(counter => observer.observe(counter));
+});
+
+</script>

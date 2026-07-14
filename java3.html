@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="n1" placeholder="Enter a no.">
+    <input type="text" id="n2" placeholder="Enter a no.">
+    <button onclick="f(this.innerHTML)">add</button>
+    <button onclick="f(this.innerHTML)">sub</button>
+    <button onclick="f(this.innerHTML)">mul</button>
+    <button onclick="f(this.innerHTML)">div</button>
+    <h2 id="result"></h2>
+</body>
+<script>
+let result=document.getElementById("result");
+function f(x)
+{
+    let n1=document.getElementById("n1").value;
+    let n2=document.getElementById("n2").value;
+let res;
+if(x=="add")
+res=Number(n1)+Number(n2);
+else if(x=="mul")
+res=Number(n1)*Number(n2);
+else if(x=="sub")
+res=Number(n1)-Number(n2);
+else if (x=="div")
+res=Number(n1)/Number(n2);
+else
+res="invalid";
+result.innerHTML+=res+"<br>";
+}
+</script>
+</html>

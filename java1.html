@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" placeholder="Enter ur Name" id="t1"/>
+    <button onclick="f()">Click</button>
+    <h2 id="Result"></h2>
+    
+</body>
+<script>
+    function f()
+    {
+        let name=document.getElementById("t1").value;
+        document.getElementById("Result").innerHTML="Hello " +name+ "</br> how r u";
+    
+    }
+</script>
+</html>

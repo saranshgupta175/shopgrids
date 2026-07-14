@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Play YouTube Video in Modal</title>
+    <style>
+        /* --- 1. Image and Round Button Styles --- */
+        .image-container {
+            position: relative;
+            display: inline-block;
+        }
+        .image-container img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+        }
+        .play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background-color: #FF0000; /* YouTube Red */
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            transition: transform 0.2s;
+        }
+        .play-btn:hover {
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+
+        /* --- 2. Hidden Popup Modal Styles --- */
+        .video-modal {
+            display: none; /* Hidden by default */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            position: relative;
+            width: 80%;
+            max-width: 800px;
+            aspect-ratio: 16 / 9; /* Keeps video responsive */
+        }
+        .modal-content iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .close-btn {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Image Container with Play Button -->
+    <div class="image-container">
+        <img src="https://picsum.photos" alt="Video Thumbnail">
+        <!-- Replaced anchor tag with a button -->
+        <button class="play-btn" id="openModalBtn">▶</button>
+    </div>
+
+    <!-- The Video Overlay Modal -->
+    <div class="video-modal" id="videoModal">
+        <div class="modal-content">
+            <button class="close-btn" id="closeModalBtn">&times;</button>
+            <!-- Replace the video ID below with your actual YouTube video ID -->
+            <iframe id="youtubeVideo" src="" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <!-- JavaScript to Control Play/Stop Actions -->
+    <script>
+        const modal = document.getElementById('videoModal');
+        const openBtn = document.getElementById('openModalBtn');
+        const closeBtn = document.getElementById('closeModalBtn');
+        const video = document.getElementById('youtubeVideo');
+
+        // Extract the unique ID from your YouTube link and paste it here
+        const youtubeEmbedUrl = "https://youtube.com";
+
+        // Open modal and load video string (autoplay enabled)
+        openBtn.addEventListener('click', () => {
+            video.src = youtubeEmbedUrl;
+            modal.style.display = 'flex';
+        });
+
+        // Close modal and clear src to stop video audio
+        function closeModal() {
+            modal.style.display = 'none';
+            video.src = ""; // Stops the video completely
+        }
+
+        closeBtn.addEventListener('click', closeModal);
+        
+        // Close if user clicks dark background area
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <select name="" id="state" onchange="f()"><option value="">Select state</option>
+    <option value="punjab">punjab</option>
+<option value="haryana">haryana</option>
+<option value="maharashtra">maharashtra</option>
+<option value="rajasthan">rajasthan</option></select>
+    <select name="" id="city"><option value="">select city</option></select>
+</body>
+<script>
+   
+const s={
+'punjab':['bathinda','amritsar','ludhiana','mohali'],
+'haryana':['hisar','sirsa','kurukshetra','panipat'],
+'maharashtra':['andheri','mumbai','pune','bandra'],
+'rajasthan':['sikar','kota','jaipur','pilani']
+}
+ function f(){
+     let state=document.getElementById("state").value;
+    let city=document.getElementById("city");
+    city.innerHTML="<option>select city</option>";
+s[state].forEach(i => {
+
+    let option=document.createElement("option")
+    option.innerHTML=i;
+    document.getElementById("city").appendChild(option);
+    
+});
+}
+</script>
+</html>

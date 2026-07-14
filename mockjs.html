@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>State and City</title>
+</head>
+<body>
+
+<select id="state" onchange="showCity()">
+    <option value="">Select State</option>
+    <option value="punjab">Punjab</option>
+    <option value="haryana">Haryana</option>
+    <option value="maharashtra">Maharashtra</option>
+    <option value="rajasthan">Rajasthan</option>
+</select>
+
+<select id="city">
+    <option>Select City</option>
+</select>
+
+<script>
+const states = {
+    punjab: ["Bathinda", "Amritsar", "Ludhiana", "Mohali"],
+    haryana: ["Hisar", "Sirsa", "Kurukshetra", "Panipat"],
+    maharashtra: ["Mumbai", "Pune", "Nashik", "Nagpur"],
+    rajasthan: ["Jaipur", "Kota", "Sikar", "Pilani"]
+};
+
+function showCity() {
+
+    let state = document.getElementById("state").value;
+    let city = document.getElementById("city");
+
+    city.innerHTML = "<option>Select City</option>";
+
+    if(state == "")
+        return;
+
+    states[state].forEach(function(c) {
+
+        let option = document.createElement("option");
+        option.innerHTML = c;
+        option.value = c;
+
+        city.appendChild(option);
+
+    });
+
+}
+</script>
+
+</body>
+</html>

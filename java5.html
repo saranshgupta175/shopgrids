@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" 
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <input type="password"  id="pass" placeholder="Enter Password">
+    <button onclick="toggle()"> <i id="eye" class="fa-solid fa-eye"></i></button>
+    <input type="password" onkeyup="f(this.value)" placeholder="Enter Confirm Password">
+    <p id="result"></p>
+</body>
+<script>
+    let result=document.getElementById("result");
+    let p=document.getElementById("pass");
+    let eye=document.getElementById("eye");
+    function toggle()
+    {
+        if(p.type=="password")
+    {
+        p.type="text";
+        eye.classList.remove("fa-eye");
+        eye.classList.add("fa-eye-slash");
+
+    }
+    else{
+        p.type="password";
+        eye.classList.add("fa-eye");
+        eye.classList.remove("fa-eye-slash");
+    }
+}
+    function f(cpass)
+    {
+        let pass=document.getElementById("pass").value;
+        if(pass==cpass)
+
+    {
+        result.innerHTML="password match";
+        result.style.backgroundColor="green";
+    }
+    else{
+        result.innerHTML="password do not match";
+        result.style.color="red";
+    }
+    }
+    
+
+</script>
+</html>

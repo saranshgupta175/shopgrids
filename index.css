@@ -1,0 +1,64 @@
+.scale{
+    font-size: 100px;
+    
+    text-align: center;
+}
+.image
+{
+    background-image:url(image/pic1.jpg) ;
+}
+#you{
+    text-align: center;
+    padding: 70px;
+    font-size: 30px;
+    font-family: cursive;
+
+}
+.button{
+    padding: 30px;
+    font-size: 50px;
+    background-color: black;
+    color: azure;
+    border-color: aliceblue;
+}
+.me{
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-style: italic;
+    padding: 20px;
+}
+.study{
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding: 10px;
+}
+.student{
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif    ;
+    padding: 10 px;
+}
+.saransh{
+    color: white;
+    text-align: center;
+    font-size: larger;
+    list-style-position: inside;
+    font-size: 50px;
+}
+.table
+{
+
+
+background-color: aliceblue;
+width: 70%;
+}
+.banner
+{
+    padding: 30px;
+    font-size: 80px;
+    background-color: brown;
+
+}
+#view
+{
+    border: 2px;
+}
